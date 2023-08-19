@@ -1,11 +1,16 @@
 const Header = () => {
   return (
-    <div className="navbar-component">
-      <nav className="navbar bg-primary">
+    <div>
+      <nav className="navbar text-light" style={{ backgroundColor: "#2c1762" }}>
         <div className="container-fluid">
-          <span className="navbar-text text-light p-2 fw-bold fs-3">
-            Meme-App
-          </span>
+          <a className="navbar-brand" href="#">
+            <img
+              src="../images/meme-logo.jpeg"
+              alt="meme-Logo"
+              className="d-inline-block align-text-top"
+            />
+            Meme-app
+          </a>
         </div>
       </nav>
     </div>

@@ -1,7 +1,5 @@
-*{
-  border: 0;
-  margin: 0;
-}
 .meme-component{
-  height: 80vh;
+    margin: 0;
+    border: 0;
+    height: 100vh;
 }

@@ -1,27 +1,12 @@
 const Footer = () => {
   return (
     <div>
-      <ul className="nav nav-pills nav-fill  bg-primary p-5">
-        <li className="nav-item ">
-          <a
-            className="nav-link text-white fw-bold"
-            aria-current="page"
-            href="#"
-          >
-            Active
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link text-white fw-bold" href="#">
-            Link
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link text-white fw-bold" href="#">
-            Link
-          </a>
-        </li>
-      </ul>
+      <footer
+        className="text-light d-flex justify-content-center align-items-center fs-6 p-3"
+        style={{ backgroundColor: "#2c1762" }}
+      >
+        © 2019 Copyright:{" Vectorware "}
+      </footer>
     </div>
   );
 };
