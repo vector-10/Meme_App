@@ -13,38 +13,36 @@ const Memegenerator = () => {
   const [allMemes, setAllMemes] = useState([]);
   //set the meme api endpoint as a url
   const memeUrl = "https:api.imgflip.com/get_memes";
-  // const fetchMemesFromApi = async () => {
-  //   try {
-  //     const response = await axios.get(memeUrl)
-  //     .then()
-  //     setAllMemes(response.data.memes);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
 
-  useEffect(() => {
-    async function fetchMemesFromApi() {
-      const res = await fetch(memeUrl);
-      const data = await res.json();
-      setAllMemes(data.data.memes);
+  //Make an API call using the fetch API
+  const fetchMemesFromApi = async () => {
+    try {
+      const response = await fetch(memeUrl);
+      const memeData = await response.json();
+      setAllMemes(memeData.data.memes);
+    } catch (error) {
+      console.log(error);
     }
+  };
+
+  // useEffect handles functions with side effects like this API call
+  useEffect(() => {
     fetchMemesFromApi();
-  }, []); // useEffect handles functions with side effects like this API call
+  }, []);
 
   // to get meme images from an array of memes t
   const getMemeImage = () => {
+    console.log("clicked the meme button");
     const randomNumber = Math.floor(Math.random() * allMemes.length);
     const url = allMemes[randomNumber].url;
     setMeme((prevMeme) => ({
       ...prevMeme,
-      randomImage: url,
+      randomnImage: url,
     }));
   };
-  console.log(getMemeImage);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target.value;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
     setMeme((prevMeme) => ({
       ...prevMeme,
       [name]: value,
@@ -82,8 +80,8 @@ const Memegenerator = () => {
       </div>
       <div className="meme">
         <h2 className="meme-text-top">{meme.topText}</h2>
-        <img src={meme.randomnImage} className="meme-image" alt="memes" />
         <h2 className="meme-text-bottom">{meme.bottomText}</h2>
+        <img src={meme.randomnImage} className="meme-image" alt="memes" />
       </div>
 
       <button onClick={getMemeImage} className="new-meme">
