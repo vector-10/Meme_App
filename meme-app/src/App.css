@@ -2,4 +2,46 @@
     margin: 0;
     border: 0;
     height: 100vh;
+  
+}
+.new-meme{
+    color: white;
+    background-color:  #2c1762;
+   padding: 10px;
+   margin: 10px 0px 10px 0px;
+   border-radius: 5px;
+   border: 0;
+}
+.meme{
+    padding: 10px;
+}
+.meme-image{
+    max-width: 500px;
+    max-height: 500px;
+}
+.meme-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media  (max-width: "375px") {
+    .new-meme{
+        margin: 50px 0px 50px 0px;
+    }
+    
+}
+.meme-Logo {
+    width: 100px ;
+    height: 75px;
+}
+@media  (max-width: "390px") {
+    .meme-Logo {
+        width: 10px ;
+        height: 15px;
+    }
+}
+.app-name{
+    font-size: 25px;
 }

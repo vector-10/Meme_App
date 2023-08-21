@@ -1,16 +1,14 @@
+import meme from "../images/meme-logo.png";
 const Header = () => {
   return (
     <div>
-      <nav className="navbar text-light" style={{ backgroundColor: "#2c1762" }}>
-        <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            <img
-              src="../images/meme-logo.jpeg"
-              alt="meme-Logo"
-              className="d-inline-block align-text-top"
-            />
-            Meme-app
-          </a>
+      <nav
+        className="navbar text-light p-4"
+        style={{ backgroundColor: "#2c1762" }}
+      >
+        <div className="container-fluid ">
+          <img src={meme} alt="joker face" className=" meme-Logo" />
+          <div className="app-name">Meme-app</div>
         </div>
       </nav>
     </div>

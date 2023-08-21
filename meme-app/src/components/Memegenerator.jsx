@@ -32,18 +32,19 @@ const Memegenerator = () => {
     const url = allMemes[randomNumber].url;
     setRandomnImage(url);
   };
+  console.log(getMemeImage);
 
   const handletopTextChange = (event) => {
-    setToptext(event.target);
+    setToptext(event.target.value);
   };
 
   const handlebottomTextChange = (event) => {
-    setToptext(event.target);
+    setBottomText(event.target.value);
   };
 
   return (
-    <div className="meme-component d-flex justify-content-center ">
-      <div className="mb-3">
+    <div className="meme-component">
+      <div className="form">
         <label htmlFor="forminput1" className="form-label">
           TopText
         </label>
@@ -55,6 +56,11 @@ const Memegenerator = () => {
           value={topText}
           onChange={handletopTextChange}
         />
+      </div>
+      <div className="meme">
+        <h2 className="meme-text-top">{topText}</h2>
+        <img src={randomnImage} className="meme-image" alt="memes" />
+        <h2 className="meme-text-bottom">{bottomText}</h2>
       </div>
       <div className="mb-3">
         <label htmlFor="forminput1" className="form-labe2">
@@ -69,12 +75,8 @@ const Memegenerator = () => {
           onChange={handlebottomTextChange}
         />
       </div>
-      <button
-        type="button"
-        className="btn "
-        style={{ backgroundColor: "#2c1762", padding: "10px", color: "white" }}
-      >
-        Primary
+      <button onClick={getMemeImage} className="new-meme">
+        Get new meme
       </button>
     </div>
   );
