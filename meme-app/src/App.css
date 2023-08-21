@@ -45,30 +45,30 @@
 
 .meme-image{
     position: relative;
-    max-width: 500px;
-    max-height: 500px;
+    width: 500px;
+    height: 300px;
     
 }
 .meme{
     position: relative;
 }
 
-@media  (max-width: "375px") {
-    .new-meme{
-        margin: 50px 0px 50px 0px;
-    }
-    
-}
+
 .meme-Logo {
     width: 100px ;
     height: 75px;
 }
-@media  (max-width: "390px") {
-    .meme-Logo {
-        width: 10px ;
-        height: 15px;
-    }
-}
+
 .app-name{
     font-size: 25px;
 }
+.download-link {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    background-color: #007bff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+  }

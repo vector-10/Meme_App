@@ -1,7 +1,7 @@
 import meme from "../images/meme-logo.png";
 const Header = () => {
   return (
-    <div>
+    <div className="header">
       <nav
         className="navbar text-light p-4"
         style={{ backgroundColor: "#2c1762" }}
