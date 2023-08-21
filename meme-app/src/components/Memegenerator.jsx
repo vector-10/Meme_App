@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 const Memegenerator = () => {
   //initialize state for the top and bottom text of the meme
@@ -14,11 +14,11 @@ const Memegenerator = () => {
   //set the meme api endpoint as a url
   const memeUrl = "https:api.imgflip.com/get_memes";
 
-  //Make an API call using the fetch API
+  //Make an API call using the axios library
   const fetchMemesFromApi = async () => {
     try {
-      const response = await fetch(memeUrl);
-      const memeData = await response.json();
+      const response = await axios.get(memeUrl);
+      const memeData = await response.data;
       setAllMemes(memeData.data.memes);
     } catch (error) {
       console.log(error);
@@ -41,14 +41,6 @@ const Memegenerator = () => {
     }));
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setMeme((prevMeme) => ({
-      ...prevMeme,
-      [name]: value,
-    }));
-  };
-
   return (
     <div className="meme-component">
       <div className="form">
@@ -61,7 +53,7 @@ const Memegenerator = () => {
           id="formcontrolinput"
           placeholder="toptext"
           value={meme.topText}
-          onChange={handleChange}
+          onChange={(e) => setMeme({ ...meme, topText: e.target.value })}
         />
 
         <div className="mb-3">
@@ -74,14 +66,14 @@ const Memegenerator = () => {
             id="formcontrolinput"
             placeholder="bottomtext"
             value={meme.bottomText}
-            onChange={handleChange}
+            onChange={(e) => setMeme({ ...meme, bottomText: e.target.value })}
           />
         </div>
       </div>
       <div className="meme">
-        <h2 className="meme-text-top">{meme.topText}</h2>
-        <h2 className="meme-text-bottom">{meme.bottomText}</h2>
+        <h2 className="meme-text">{meme.topText}</h2>
         <img src={meme.randomnImage} className="meme-image" alt="memes" />
+        <h2 className="meme-text">{meme.bottomText}</h2>
       </div>
 
       <button onClick={getMemeImage} className="new-meme">
